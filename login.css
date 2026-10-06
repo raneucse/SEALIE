@@ -1,0 +1,194 @@
+/* Gaya halaman login. Memakai variabel dari :root di style.css, jadi muat style.css lebih dulu. */
+
+.login-page {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+	background: radial-gradient(ellipse at center,
+			rgba(153, 69, 255, 0.1) 0%,
+			transparent 50%);
+}
+
+.login-logo {
+	margin-bottom: 30px;
+	font-size: 32px;
+	font-weight: 900;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--text-secondary);
+}
+
+.login-logo span {
+	background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.login-card {
+	position: relative;
+	width: 100%;
+	max-width: 420px;
+	padding: 40px 35px;
+	overflow: hidden;
+	background: linear-gradient(135deg, var(--carbon-medium), var(--carbon-dark));
+	border: 2px solid var(--metal-dark);
+	border-radius: 20px;
+	box-shadow:
+		0 20px 40px rgba(0, 0, 0, 0.8),
+		inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* garis pindai seperti pada card carousel */
+.login-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+	animation: login-scan 3s linear infinite;
+	pointer-events: none;
+}
+
+@keyframes login-scan {
+	from { top: 0; }
+	to   { top: 100%; }
+}
+
+.login-title {
+	margin-bottom: 8px;
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: linear-gradient(135deg, var(--text-primary), var(--accent-purple));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.login-subtitle {
+	margin-bottom: 28px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--text-secondary);
+}
+
+.login-alert {
+	margin-bottom: 20px;
+	padding: 12px 16px;
+	font-size: 13px;
+	line-height: 1.5;
+	border-radius: 10px;
+	border: 1px solid;
+}
+
+.login-alert.error {
+	color: var(--accent-red);
+	background: rgba(255, 51, 51, 0.08);
+	border-color: rgba(255, 51, 51, 0.5);
+}
+
+.login-alert.success {
+	color: var(--accent-green);
+	background: rgba(0, 255, 136, 0.08);
+	border-color: rgba(0, 255, 136, 0.5);
+}
+
+.login-field {
+	margin-bottom: 20px;
+}
+
+.login-field label {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--text-secondary);
+}
+
+.login-field input {
+	width: 100%;
+	padding: 14px 16px;
+	font-family: inherit;
+	font-size: 14px;
+	color: var(--text-primary);
+	background: var(--carbon-dark);
+	border: 1px solid var(--metal-dark);
+	border-radius: 10px;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-field input:focus {
+	outline: none;
+	border-color: var(--accent-purple);
+	box-shadow: 0 0 0 3px rgba(153, 69, 255, 0.2);
+}
+
+/* jaga warna gelap saat browser mengisi otomatis */
+.login-field input:-webkit-autofill {
+	-webkit-text-fill-color: var(--text-primary);
+	box-shadow: 0 0 0 1000px var(--carbon-dark) inset;
+	caret-color: var(--text-primary);
+}
+
+.login-submit {
+	width: 100%;
+	margin-top: 8px;
+	padding: 14px 30px;
+	font-family: inherit;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: var(--text-primary);
+	background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	box-shadow: 0 5px 15px rgba(153, 69, 255, 0.3);
+	transition: all 0.3s ease;
+}
+
+.login-submit:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 25px rgba(153, 69, 255, 0.5);
+}
+
+.login-footer {
+	margin-top: 24px;
+	text-align: center;
+	font-size: 13px;
+	color: var(--text-dim);
+}
+
+.login-footer a {
+	margin-left: 4px;
+	color: var(--accent-cyan);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+	color: var(--accent-purple);
+}
+
+.login-back {
+	margin-top: 24px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--text-dim);
+	transition: color 0.3s ease;
+}
+
+.login-back:hover {
+	color: var(--text-primary);
+}
